@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    margin: 0;
+    height: 100%;
+}
+
+.header {
+    background-color: black;
+    width: 100%; /* Установите ширину на всю ширину окна просмотра */
+    position: fixed; /* Позиционирование для корректного отображения */
+    top: 0; /* Зафиксировать вверху */
+    left: 0; /* Сдвиг влево на 0 */
+    height: auto;
+    text-align: center; /* Центрирование содержимого */
+    padding: 10px 0; /* Отступы для заголовка */
+}
+
+
+.logo {
+    width: 100px; /* Установите нужную ширину */
+    height: auto; /* Высота будет автоматически подстраиваться для сохранения пропорций */
+}
+
+.container {
+    max-width: 300px;
+    width: 90%; /* Делаем контейнер более отзывчивым */
+    height: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10% auto; /* Центрирование контейнера с отступом сверху */
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"], input[type="file"], textarea {
+    width: 100%; /* Делаем ширину 100% для отзывчивости */
+    max-width: 437px; /* Ограничиваем максимальную ширину */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #10b827;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%; /* Делаем ширину 100% для отзывчивости */
+    max-width: 460px; /* Ограничиваем максимальную ширину */
+    border-radius: 4px;
+    transition: background-color 0.3s, border-radius 0.3s; /* Плавный переход */
+}
+
+input[type="submit"]:hover {
+    background-color: #0a8f1a;
+    border-radius: 15px; /* Изменение радиуса при наведении */
+}
+
+textarea {
+    background-color: #fff;
+    max-width: 280px;
+    height: auto;
+}
+
+/* Медиа-запрос для улучшения адаптивности на меньших экранах */
+@media (max-width: 600px) {
+    .container {
+        width: 95%; /* Увеличиваем ширину контейнера на малых экранах */
+        margin: 5% auto; /* Уменьшаем отступ сверху */
+    }
+
+    input[type="text"], input[type="file"], textarea, input[type="submit"] {
+        width: 100%; /* Полная ширина для всех полей ввода */
+    }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карточки</title>
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            width: 300px; /* Ширина карточки */
+        }
+        .card img {
+            max-width: 100%; /* Ограничиваем ширину изображения */
+            height: auto; /* Поддерживаем пропорции изображения */
+            border-radius: 5px; /* Скругление углов изображения */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        {% for card in cards %}
+                <h2>{{ card[0] }}</h2>  <!-- Заголовок -->
+                <p>{{ card[1] }}</p>    <!-- Описание -->
+                {% if card[2] %} <!-- Проверяем, есть ли имя файла изображения -->
+                    <img src="{{ url_for('static', filename='img/' + card[2]) }}" alt="{{ card[0] }}"> <!-- Отображаем изображение -->
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

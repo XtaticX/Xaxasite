@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель Xatic Xaos</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+    <header class="header">
+        <a href="{{ url_for('home') }}">
+            <img class="logo" src="{{ url_for('static', filename='img/Logo.jpeg') }}" alt="Логотип Xatic Xaos"></a>
+    </header>
+    <div class="container">
+        <h1>Добавить карточку</h1>
+        <form action="{{ url_for('add_card') }}" method="POST" enctype="multipart/form-data"   style="margin: 10px"  >
+            <label for="title">Название карточки:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="image">Изображение:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+
+            <label for="description">Описание:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+
+            <input type="submit" value="Добавить карточку">
+        </form>
+    </div>
+</body>
+</html>

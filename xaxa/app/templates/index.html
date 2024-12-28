@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xatic Xaos</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <a href="{{ url_for('home') }}">
+            <img class="logo" src="{{ url_for('static', filename='img/Logo.jpeg') }}" alt="Логотип Xatic Xaos">
+        </a>
+    </header>
+<div class="vse">
+    <div class ='background'>
+        <img class="logo" src="{{ url_for('static', filename='img/photo_2024-12-17_22-10-40.jpg') }}" alt="">
+    </div>
+
+    <div class="item">
+        <div class="thumb-img">
+            <img class="n1" src="{{ url_for('static', filename='img/n1.jpg') }}" alt="Общее фото">
+            <div class="hover-text">
+                <a href="{{ url_for('card') }}">Вас приветствует Xatic Xaos</a> <!-- Ссылка на card.html -->
+            </div>
+        </div>
+    </div>
+
+    <div class="card-container">
+        <div class="cart"
+            <h1>Новости</h1> <!-- Заголовок карточек теперь внутри контейнера -->
+        </div>
+        {% for card in cards %}
+            <div class="card" onclick="openModal('{{ card.title }}', '{{ card.description }}')">
+                <h2>{{ card.title }}</h2>  <!-- Заголовок карточки -->
+                {% if card.image %} <!-- Проверяем, есть ли имя файла изображения -->
+                    <img src="{{ url_for('static', filename='img/' + card.image) }}" alt="{{ card.title }}"> <!-- Отображаем изображение -->
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Модальное окно -->
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal()">&times;</button>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+    
+    <footer>
+        <a class="highlight-text">&copy; 2024 Xatic Xaos. By CaE&trade;</p>
+        <p class="highlight-text-right"><a href="https://www.tiktok.com/@xatic.xaos?_t=8sIogqbYClp&_r=1">ТикТок</a></p>
+        <p class="highlight-text-right"><a href="https://vk.com/xatic_xaos ">Вконтакте</a></p>
+        <p class="highlight-text-right"><a href="https://t.me/xaticxaos">Телеграм</a></p>
+    </footer>
+
+    <script>
+        function openModal(title, description) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-description').innerText = description;
+            document.getElementById('myModal').style.display = 'flex'; // Показываем модальное окно
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none'; // Скрываем модальное окно
+        }
+
+        // Закрытие модального окна при клике вне его
+        window.onclick = function(event) {
+            const modal = document.getElementById('myModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</div>
+</body>
+</html>

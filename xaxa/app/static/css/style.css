@@ -1,0 +1,340 @@
+ /* Общие стили */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+.background {
+    position: fixed; /* Фиксирует элемент на экране */
+    top: 0; /* Начинаем с верхней части */
+    left: 0; /* Начинаем с левой части */
+    width: 100%; /* Ширина 100% */
+    height: 100%; /* Высота 100% */
+    z-index: -1; /* Устанавливает элемент ниже других элементов на странице */
+    overflow: hidden; /* Скрывает переполнение */
+}
+
+.background img {
+    width: 100%; /* Ширина изображения 100% */
+    height: auto; /* Высота изображения 100% */
+    object-fit: cover; /* Обеспечивает, что изображение заполняет элемент, сохраняя пропорции */
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Установим шрифт по умолчанию */
+    background-color: #f4f4f4; /* Цвет фона страницы */
+    background-size: cover; /* Масштабируем изображение, чтобы покрыть весь фон */
+    background-position: center; /* Центрируем изображение */
+}
+
+/* Стили для ссылок */
+a {
+    color: #ffffff; /* Цвет обычной ссылки */
+    text-decoration: none; /* Убираем подчёркивание у ссылок */
+}
+a:visited {
+    color: #ffffff; /* Цвет посещённой ссылки */
+}
+a:hover {
+    color: #10b827; /* Цвет ссылки при наведении */
+    text-decoration: underline; /* Добавляем подчёркивание */
+}
+
+/* Стили для карточек */
+.card {
+    border: 1px solid #ffffff;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    width: 300px; /* Ширина карточки */
+    position: relative; /* Для абсолютного позиционирования дочерних элементов */
+    transition: transform 0.3s; /* Плавный переход при наведении */
+}
+.card:hover {
+    transform: scale(1.05); /* Увеличение карточки при наведении */
+}
+.card img {
+    max-width: 100%; /* Ограничиваем ширину изображения */
+    height: auto; /* Поддерживаем пропорции изображения */
+    border-radius: 5px; /* Скругление углов изображения */
+}
+
+/* Контейнер для карточек */
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет карточкам переноситься на следующую строку */
+    justify-content: center; /* Выравнивание карточек по центру */
+    padding: 20px; /* Отступы вокруг контейнера */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+    border-radius: 10px; /* Скругление углов контейнера */
+    background-color: white; /* Цвет фона контейнера */
+    margin-top: 300px;
+    width: 100%;
+    right: 0;
+}
+
+/* Модальное окно */
+.modal {
+    display: none; /* Скрываем модальное окно по умолчанию */
+    position: fixed; /* Фиксированное позиционирование */
+    z-index: 1000; /* Уровень наложения */
+    left: 0;
+    top: 0;
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+    justify-content: center; /* Центрируем содержимое */
+    align-items: center; /* Центрируем содержимое по вертикали */
+}
+.modal-content {
+    background-color: white; /* Цвет фона модального окна */
+    border-radius: 10px; /* Скругление углов */
+    padding: 20px; /* Отступы внутри модального окна */
+    width: 80%; /* Ширина модального окна */
+    max-width: 500px; /* Максимальная ширина модального окна */
+    position: relative; /* Для абсолютного позиционирования кнопки закрытия */
+}
+
+/* Кнопка закрытия модального окна */
+.close-button {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 10px; /* Отступ сверху */
+    right: 10px; /* Отступ справа */
+    background-color: transparent; /* Прозрачный фон */
+    border: none; /* Убираем рамку */
+    font-size: 20px; /* Размер шрифта */
+    cursor: pointer; /* Указываем, что элемент кликабельный */
+}
+.close-button:hover {
+    color: red; /* Цвет кнопки закрытия при наведении */
+}
+
+/* Заголовок */
+.header {
+    position: fixed; /* Фиксирует заголовок в верхней части страницы */
+    top: 0%; /* Устанавливает заголовок в верхнюю часть */
+    left: 0; /* Устанавливает заголовок в левую часть */
+    background-color: black; /* Фон заголовка */
+    width: 100%; /* Ширина 100% от окна браузера */
+    height: auto; /* Высота автоматически подстраивается под содержимое */
+    text-align: center; /* Центрирование содержимого */
+    padding: 10px 0; /* Отступы для заголовка */
+    z-index: 3; /* Убедитесь, что заголовок находится выше других элементов */
+}
+
+.main-content {
+    margin-top: 60px; /* Убедитесь, что это значение больше высоты заголовка на 10 пикселей */
+}
+
+/* Логотип */
+.logo {
+    width: 100px; /* Установите нужную ширину */
+    height: auto; /* Высота будет автоматически подстраиваться для сохранения пропорций */
+}
+
+/* Контейнер для элементов */
+.item-container {
+    display: flex; /* Используем Flexbox */
+    flex-wrap: wrap; /* Позволяет элементам переноситься на следующую строку, если не хватает места */
+    justify-content: center; /* Центрируем элементы по горизонтали */
+    padding-top: 20%;
+    min-height: 100vh; /* Занимаем минимальную высоту 100% от высоты окна просмотра */
+    padding: 20px; /* Добавьте отступы по желанию */
+}
+
+/* Элементы */
+.item {
+    width: 500px;
+    margin: 2% auto;
+    height: auto;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Псевдоэлемент для затемнения */
+.item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Цвет затемнения с прозрачностью */
+    opacity: 0; /* По умолчанию скрыто */
+    transition: opacity 0.3s ease; /* Плавный переход для затемнения */
+    z-index: 0; /* Псевдоэлемент ниже текста */
+}
+.item:hover::after {
+    opacity: 2; /* Показать затемнение при наведении */
+}
+
+.cart {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-size: medium;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 50px;
+}
+
+/* Изображение миниатюры */
+.thumb-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px; /* Скругление углов изображения */
+    cursor: pointer; /* Указатель при наведении на изображение */
+}
+.thumb-img img {
+    width: 100%;
+    height: auto; /* Высота будет автоматически подстраиваться для сохранения пропорций */
+    display: block;
+}
+
+/* Стили для hover-текста */
+.hover-text {
+    display: flex; /* Используем flexbox для центрирования */
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 50%; /* Сдвигаем вниз на 50% высоты родителя */
+    left: 50%; /* Сдвигаем вправо на 50% ширины родителя */
+    transform: translate(-50%, -50%); /* Центрируем текст */
+    width: 100%; /* Занимаем всю ширину родителя */
+    height: 100%; /* Занимаем всю высоту родителя */
+    color: white; /* Цвет текста */
+    font-size: 16px; /* Размер шрифта */
+    text-align: center; /* Выравнивание текста по центру */
+    opacity: 0; /* Скрыто по умолчанию */
+    transition: opacity 0.3s ease-in-out; /* Плавный переход для появления текста */
+    z-index: 4; /* Текст выше затемнения */
+    text-decoration: none; /* Убирает подчеркивание, если нужно */
+    white-space: normal; /* Позволяет тексту переноситься на новую строку */
+    overflow: hidden; /* Скрывает текст, выходящий за границы */
+    text-overflow: ellipsis; /* Добавляет многоточие, если текст не помещается */
+}
+.item:hover .hover-text {
+    opacity: 1; /* Показать текст при наведении */
+    color: rgb(255, 21, 0); /* Цвет текста при наведении (по желанию) */
+    z-index: 5; /* Псевдоэлемент ниже текста */
+}
+
+.vse {
+    padding-top: 200px;
+    width: 100%;
+}
+
+/* Стили для каждой карточки */
+.card {
+    width: 300px; /* Ширина карточки */
+    margin: 15px; /* Отступы между карточками */
+    border: 1px solid #46464600; /* Рамка вокруг карточки */
+    background-color: rgba(128, 128, 128, 0);
+    border-radius: 10px; /* Скругление углов */
+    overflow: hidden; /* Скрываем все, что выходит за границы карточки */
+    position: relative; /* Для абсолютного позиционирования дочерних элементов */
+    transition: transform 0.3s; /* Плавный переход при наведении */
+}
+.card:hover {
+    transform: scale(1.05); /* Увеличение карточки при наведении */
+}
+
+/* Стили для заголовка карточки */
+.card-title {
+    font-size: 20px; /* Размер шрифта заголовка */
+    font-weight: bold; /* Жирный шрифт */
+    padding: 10px; /* Отступы внутри заголовка */
+    background-color: #f8f8f8; /* Цвет фона заголовка */
+    text-align: center; /* Центрирование текста */
+}
+
+/* Стили для кнопки открытия описания */
+.card-description-button {
+    display: block; /* Делаем кнопку блочным элементом */
+    padding: 10px; /* Отступы внутри кнопки */
+    background-color: #007bff; /* Цвет фона кнопки */
+    color: white; /* Цвет текста кнопки */
+    text-align: center; /* Центрирование текста кнопки */
+    border: none; /* Убираем рамку */
+    border-radius: 5px; /* Скругление углов кнопки */
+    cursor: pointer; /* Указываем, что элемент кликабельный */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+.card-description-button:hover {
+    background-color: #0056b3; /* Цвет кнопки при наведении */
+}
+
+/* Стили для футера */
+footer {
+    background-color: #000000; /* Цвет фона футера */
+    text-align: center; /* Выравнивание текста по центру */
+    padding: 20px; /* Отступы внутри футера */
+    width: 100%; /* Занять всю ширину */
+}
+
+
+.highlight-text-right {
+    display: inline; /* Обеспечивает, что текст будет вести себя как строчный элемент */
+    position: relative; /* Устанавливаем позиционирование для псевдоэлемента */
+    color: #ffffff;  /* Цвет текста */
+    cursor: pointer; /* Изменяем курсор при наведении */
+    text-align: right;
+    font-size: 20px; /* Размер текста в футере */
+    text-decoration: none; /* Убираем подчеркивание */
+    display: block; /* Делаем ссылки блочными элементами, чтобы отступы работали */
+}
+
+.highlight-text {
+    display: inline; /* Обеспечивает, что текст будет вести себя как строчный элемент */
+    position: relative; /* Устанавливаем позиционирование для псевдоэлемента */
+    color: #ffffff;  /* Цвет текста */
+    cursor: pointer; /* Изменяем курсор при наведении */
+    text-align: right;
+    font-size: 20px; /* Размер текста в футере */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.highlight-text::before {
+    content: ''; /* Создаем пустой контент для псевдоэлемента */
+    background-color: yellow; /* Цвет выделения */
+    opacity: 0; /* Начальная прозрачность */
+    transition: opacity 0.3s; /* Плавный переход для эффекта выделения */
+    z-index: -1; /* Устанавливаем псевдоэлемент под текстом */
+}
+
+.highlight-text:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+.highlight-text:hover::before {
+    opacity: 1; /* Полная непрозрачность при наведении */   
+}
+
+
+
+
+@media (max-width: 768px) {
+    /* Стили для мобильных устройств */
+    .background {
+        position: fixed; /* Фиксирует элемент на экране */
+        top: 0; /* Начинаем с верхней части */
+        left: 0; /* Начинаем с левой части */
+        width: 100%; /* Ширина 100% */
+        height: 100%; /* Высота 100% */
+        z-index: -1; /* Устанавливает элемент ниже других элементов на странице */
+        overflow: hidden; /* Скрывает переполнение */
+    }
+    
+    .background img {
+        width: 100%; /* Ширина изображения 100% */
+        height: auto; /* Высота изображения 100% */
+    }
+}
